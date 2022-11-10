@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="lidi.css">
+<script src="lidi.js"></script>
+<div id="demoA"></div>
+<script>
+lidi({
+  hWrap : document.getElementById("demoA"),
+  status : 1,
+  change : status => {
+    var data = new FormData();
+    data.append("status", status);
+    fetch("1-dummy.txt", { method: "POST", body: data })
+    .then(res => res.text())
+    .then(txt => console.log(txt))
+    .catch(err => console.error(err));
+  }
+});
+</script>
