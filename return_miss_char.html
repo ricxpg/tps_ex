@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lettera Mancante</title>
+    <script>
+    function letteraMancante(arr) {
+      let min = arr[0].charCodeAt();
+      let max = arr[arr.length - 1].charCodeAt();
+      let missing;
+       
+      for (let i = min; i < max; i++) {
+        if (arr.indexOf(String.fromCharCode(i)) < 0) {
+          missing = String.fromCharCode(i);
+        }
+      }
+      return missing;
+    }
+    </script>
+</head>
+<body>
+    <h1>Lettera Mancante</h1>
+    <input type="text" id="arr" />
+    <button onclick="letteraMancante(document.getElementById('arr').value)">Controlla</button>
+    <p id="result"></p>
+</body>
+</html>

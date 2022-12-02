@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="labyrinth">
+      <span class="path"></span>
+      <span class="wall"></span>
+      <span class="start"></span>
+      <span class="end"></span>
+    </div>
+    <div class="controls">
+      <button class="up"></button>
+      <button class="down"></button>
+      <button class="right"></button>
+      <button class="left"></button>
+    </div>
+  </div>
+  
+  <script>
+  const labyrinth = [
+    [2, 0, 0, 0, 0, 1],
+    [0, 0, 1, 0, 0, 1],
+    [1, 0, 0, 0, 0, 0],
+    [0, 1, 1, 0, 1, 0],
+    [0, 0, 0, 0, 0, 3],
+  ];
+  
+  let posX = 0;
+  let posY = 0;
+  
+  const move = (direction) => {
+    switch (direction) {
+      case 'up':
+        if (labyrinth[posX][posY - 1] === 0) {
+          posY--;
+        } else {
+          console.log('Morto!');
+        }
+        break;
+      case 'down':
+        if (labyrinth[posX][posY + 1] === 0) {
+          posY++;
+        } else {
+          console.log('Morto!');
+        }
+        break;
+      case 'left':
+        if (labyrinth[posX - 1][posY] === 0) {
+          posX--;
+        } else {
+          console.log('Morto!');
+        }
+        break;
+      case 'right':
+        if (labyrinth[posX + 1][posY] === 0) {
+          posX++;
+        } else {
+          console.log('Morto!');
+        }
+        break;
+      default:
+        break;
+    }
+    if (labyrinth[posX][posY] === 3) {
+      console.log('Bravoooo!');
+    }
+  };
+</script>
