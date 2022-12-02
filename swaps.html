@@ -1,0 +1,40 @@
+
+<html>
+  <head>
+    <title>Swap Binary Strings</title>
+    <script type="text/javascript">
+      function swapBinaryStrings() {
+        var firstString = document.getElementById("firstString").value;
+        var secondString = document.getElementById("secondString").value;
+        var resultElement = document.getElementById("result");
+        var swaps = swapStrings(firstString, secondString);
+
+        resultElement.innerHTML = "Minimum Swaps Needed : " + swaps;
+      }
+
+      function swapStrings(firstString, secondString) {
+        if (firstString.length !== secondString.length) {
+          return "Input strings must have the same length";
+        }
+
+        var swaps = 0;
+        for (var i = 0; i < firstString.length; i++) {
+          if (firstString.charAt(i) !== secondString.charAt(i)) {
+            swaps += 1;
+          }
+        }
+        return swaps;
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="firstString" placeholder="Enter first string" />
+      <input type="text" id="secondString" placeholder="Enter second string" />
+      <button type="button" onclick="swapBinaryStrings()">Calculate Swaps</button>
+    </div>
+    <div>
+      <h1 id="result"></h1>
+    </div>
+  </body>
+</html>
